@@ -1,0 +1,3 @@
+[submodule "roles/ansible-role-vim/files"]
+	path = roles/ansible-role-vim/files
+	url = https://github.com/rurudo/dotfile

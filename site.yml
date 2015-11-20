@@ -1,6 +1,5 @@
 ---
 
 - hosts: all
-  sudo: yes
   roles:
     - ansible-role-vim
