@@ -1,0 +1,31 @@
+---
+
+- name: Install the dependencies for oh-my-zsh
+  become: yes
+  apt: pkg={{ item }}
+  with_items:
+    - curl
+    - zsh
+
+- name: Checkout oh-my-zsh
+  git:
+    repo=https://github.com/robbyrussell/oh-my-zsh.git
+    dest=/home/{{ user }}/.oh-my-zsh
+
+- name: Download .zshrc
+  get_url:
+    url=https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/templates/zshrc.zsh-template
+    dest=/home/{{ user }}/.zshrc
+    mode=0666
+
+- name: Change default shell
+  user:
+    name={{ user }}
+    shell=/bin/zsh
+  become: yes
+
+- name: Change plugin
+  replace:
+    dest=/home/{{ user }}/.zshrc
+    regexp='^plugins=\(.+?\)'
+    replace='plugins=(git bundler rails)'
