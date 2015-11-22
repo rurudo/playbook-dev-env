@@ -4,3 +4,4 @@
   roles:
     - ansible-role-vim
     - ansible-role-zsh
+    - ansible-role-fzf

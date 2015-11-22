@@ -1,0 +1,17 @@
+---
+
+- name: Checkout fzf
+  git:
+    repo=https://github.com/junegunn/fzf.git
+    dest=/home/{{ user }}/.fzf
+
+- name: Install fzf
+  script: /home/{{ user }}/.fzf/install --all
+  args:
+    creates: /home/{{ user }}/.fzf.zsh
+
+- name: Fix path
+  replace:
+    dest=/home/{{ user }}/.fzf.zsh
+    regexp='.ansible\/tmp\/.+?\/'
+    replace='.fzf/'
