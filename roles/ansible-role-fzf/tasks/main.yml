@@ -14,12 +14,6 @@
   environment:
     BASH_SOURCE: /home/{{ user }}/.fzf/install
 
-- name: Fix path
-  replace:
-    dest=/home/{{ user }}/.fzf.zsh
-    regexp='.ansible\/tmp\/.+?\/'
-    replace='.fzf/'
-
 - name: Copy fzf script
   copy:
     src=fzf.zsh
