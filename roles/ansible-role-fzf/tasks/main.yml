@@ -8,10 +8,19 @@
 - name: Install fzf
   script: /home/{{ user }}/.fzf/install --all
   args:
-    creates: /home/{{ user }}/.fzf.zsh
+    creates:
+      - /home/{{ user }}/.fzf.zsh
+      - /home/{{ user }}/.fzf/bin/fzf
+  environment:
+    BASH_SOURCE: /home/{{ user }}/.fzf/install
 
 - name: Fix path
   replace:
     dest=/home/{{ user }}/.fzf.zsh
     regexp='.ansible\/tmp\/.+?\/'
     replace='.fzf/'
+
+- name: Copy fzf script
+  copy:
+    src=fzf.zsh
+    dest=/home/{{ user }}/.oh-my-zsh/custom
