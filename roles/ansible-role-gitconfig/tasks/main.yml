@@ -1,0 +1,8 @@
+---
+
+- Copy user config file
+  template:
+    src=gitconfig.j2
+    dest=/home/{{ user }}/.gitconfig
+    # dest=/home/{{ user }}/.config/git/config
+    # dest=/etc/gitconfig
