@@ -12,5 +12,5 @@ It does the following:
 
 # Installation
 ```
-$ ansible-playbook -i hosts -e "user=`whoami`" site.yml
+$ ansible-playbook -i hosts -e "user=`whoami` git_username=a git_usermail=a@b.com" site.yml
 ```
