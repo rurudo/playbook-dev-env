@@ -5,3 +5,4 @@
     - ansible-role-vim
     - ansible-role-zsh
     - ansible-role-fzf
+    - ansible-role-gitconfig
