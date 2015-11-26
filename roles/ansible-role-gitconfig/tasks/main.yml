@@ -1,6 +1,6 @@
 ---
 
-- Copy user config file
+- name: Copy user config file
   template:
     src=gitconfig.j2
     dest=/home/{{ user }}/.gitconfig
